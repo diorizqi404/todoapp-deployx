@@ -16,7 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute([$username, password_hash($password, PASSWORD_DEFAULT)]);
             $success = 'Registrasi berhasil! Silakan login.';
         } catch(PDOException $e) {
-            $error = 'Username sudah digunakan';
+            // Check if it's duplicate entry error (error code 23000)
+            if ($e->getCode() == 23000) {
+                $error = 'Username sudah digunakan';
+            } else {
+                $error = 'Error: ' . $e->getMessage();
+            }
         }
     }
 }

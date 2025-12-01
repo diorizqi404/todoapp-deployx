@@ -24,8 +24,8 @@ function db() {
     if ($conn === null) {
         $conn = new PDO(
             "mysql:host=" . env('DB_HOST') . ";port=" . env('DB_PORT') . ";dbname=" . env('DB_NAME'),
-            env('DB_USER'),
-            env('DB_PASS')
+            env('DB_USERNAME'),
+            env('DB_PASSWORD')
         );
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
