@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="card">
-        <h1>Login</h1>
+        <h1>Login untuk masuk ke dashboard</h1>
         <?php if ($error): ?>
             <div class="alert error"><?= $error ?></div>
         <?php endif; ?>
